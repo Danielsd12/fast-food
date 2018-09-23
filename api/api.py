@@ -1,180 +1,47 @@
-from flask import Flask
-from flask_restful import Api, Resource,request 
-
+from flask import Flask, request, jsonify, json
 app = Flask(__name__)
-api = Api(app)
-METHODS=['GET'],['POST'],['PUT']
-
-
-
-ORDERS =  {
-    'order1': {'pizza': 700000},
-    'order2': {'Sausage': 35000},
-    'order3': {'Roasted_meat': 50000},
-}
-
-##app.route('/api/v1.0/new_order', methods=['POST']) 
-##@app.route('/api/v1.0/get_order', method=['GET'])
-
-
-#####          get orders    ########
-
-class order(Resource):
-    def get(self):
-        return {
-        "order": "all orders",
-        "client":
-        {
-        "first_name": "Sserunkuma",
-        "last_name": "Daniel",
-        },
-
-
-   "requested_items":
-   {
-       "order_id": "001",
-       "food_items": ["chipse","Sausage","Roasted_meat"],
-       "chipse_price": 10000,
-       "Sausage_price": 24000,
-       "Roasted_meat_price": 30000,
-   },
-
-
-   "residence": 
-   {
-         "city": "Nakawa",
-         "country": "Uganda",
-      }
-        }
-
-    def get_order_id(self):
-        return {
-        "order": "all orders",
-        "client":
-        {
-        "first_name": "Sserunkuma",
-        "last_name": "Daniel",
-        },
-
-
-   "requested_items":
-   {
-       "order_id": "001",
-       "food_items": ["chipse","Sausage","Roasted_meat"],
-       "chipse_price": 10000,
-       "Sausage_price": 24000,
-       "Roasted_meat_price": 30000,
-   },
-
-
-   "residence": 
-   {
-         "city": "Nakawa",
-         "country": "Uganda",
+orders = [{'orderid': 1, 'name': 'Sserunkuma Daniel','residence':'Lubaga',  'item':'chipse',   'price':23000},
+           {'orderid': 2, 'name': 'Nagawa Ruth',     'residence':'mengo',     'item':'chicken','price':50000},
+           {'orderid': 3, 'name': 'Namata Recheal',  'residence':'nakawa',   'item':'pizza',   'price':20000},
+           {'orderid': 4, 'name': 'Sentanlo John',   'residence':'makindye',  'item':'coffe',   'price':5500},
+           {'orderid': 5, 'name': 'John Bosco',      'residence':'kampala',   'item':'beaf',     'price':35000},
+           {'orderid': 6, 'name': 'Omega Lutalo',    'residence':'namungoona',  'item': 'gollilos','price':12000},
+           {'orderid': 7, 'name': 'Senyondo Robert', 'residence':'kamwokya',  'item':'hot dog',    'price':90000}]
+@app.route('/api/v1/order', methods=('GET', 'POST'))
+def order():
+    if request.method == 'GET':
+        response = orders
+    else:  # POST
+        if request.content_type != 'application/json':
+            return jsonify({})
+        try:
+            new_orders = json.loads(request.data)
+        except ValueError:
+            return jsonify({})
+            ########     code execeeds this level or reaches here
+        print("before if")
+        if 'orderid' in new_orders and isinstance(new_orders['orderid'], int) and \
+           'name' in new_orders and isinstance(new_orders['name'], str) and \
+           'residence' in new_orders and isinstance(new_orders['residence'],str) and\
+           'item' in new_orders and isinstance(new_orders['item'],str) and\
+           'price' in new_orders and isinstance(new_orders['price'],int) and\
+           len(new_orders.keys()) == 5 and new_orders not in orders:
+           print("after if")
+           orders.append(new_orders)
+           response = orders[-1]
+        else:
+            ###### am testing to see whether my code run upto here  ######
+            return jsonify("The Validation Failed")
+    return jsonify(response)
+@app.route('/api/v1/order/<int:orderid>', methods=('PUT', 'DELETE'))
+def update_orders(orderid):
+    if request.method == 'DELETE':
+        del orders [orderid]
+        return jsonify(orderid)
         
-      }
-        }
-
-
-
-
-    #def get_order_id(self,order_id):
-     #   return
-    #order_by_id = {
-      #      "order_id":"001",
-      #      "order_id":"002",
-      #      "order_id":"003", 
-       #      }
-
-
-
-
-
-
-
-  
-##@app.route('/api/v1.0/order', methods=['PUT'])
-##class order_id(Resource):
-
-###############        put endpoint      ###############
-    def put(self):
-        return {
-        "order": "all orders",
-        "client":
-        {
-        "first_name": "Namatovu",
-        "last_name": "Milly",
-        },
-
-
-   "requested_items":
-   {
-       "order_id": "002",
-       "food_items": ["pizza","golilos","chicken"],
-       "pizza_price": 21000,
-       "golilos_price": 45000,
-       "chicken_price": 50000,
-   }
-
-    }
-
-   #######         my post end point method   #   ## # #####  
-##@app.route('/api/v1.0/new_order', methods=['POST'])   
-##class new_order(Resource):
-
-    def post(self):
-        return {
-        "order": "all orders",
-        "client":
-        {
-        "first_name": "Namanda",
-        "last_name": "Betty",
-        },
-
-
-   "requested_items":
-   {
-       "order_id": "003",
-       "food_items": "chicken",
-       "price": 40000,
-   },
-
-
-   "residence": 
-   {
-         "city": "Kasubi",
-         "country": "Uganda",
-      }
-
-    }    
-
-
-##@app.route('/api/v2.0/order', methods=['POST'])
-##def post(self , order_id):
-  ##  return {order_id: order[order_id]} 
-
-
-
-##@app.route('/api/v3.0/order', methods=['PUT'])
-##def put(self, order_id):      
- ##   return {order_id: order[order_id]} 
-    
- 
-##class new_order(Resource):
-   ## def get(self):
-    ##    return {'order': 'new_orders'}
-
-
-##class order_id(Resource):
-  ##  def post(self,order_id):
-     ##   return {order_id: order[order_id]}    
-
-##api.add_resource(new_order,'/order_id')
-api.add_resource(order, '/')
-##api.add_resource(order, '/')
-##api.put_resource(order, '/')
-##api.add_resource(order, '/order/<order_id>')
-
-
+    else: 
+        orders[orderid] = json.loads(request.data)
+        return jsonify({})
+                
 if __name__ == '__main__':
     app.run(debug=True)
