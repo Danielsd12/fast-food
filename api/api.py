@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, json
 app = Flask(__name__)
-orders = [{'orderid': 1, 'name': 'Sserunkuma Daniel','residence':'Lubaga',  'item':'chipse',   'price':23000},
+orders = [{'orderid': 1, 'name': 'Sserunkuma Daniel','residence':'Lubaga',  'item':'chips',   'price':23000},
            {'orderid': 2, 'name': 'Nagawa Ruth',     'residence':'mengo',     'item':'chicken','price':50000},
            {'orderid': 3, 'name': 'Namata Recheal',  'residence':'nakawa',   'item':'pizza',   'price':20000},
            {'orderid': 4, 'name': 'Sentanlo John',   'residence':'makindye',  'item':'coffe',   'price':5500},
@@ -18,7 +18,9 @@ def order():
             new_orders = json.loads(request.data)
         except ValueError:
             return jsonify({})
+
             ########     code execeeds this level or reaches here
+            
         print("before if")
         if 'orderid' in new_orders and isinstance(new_orders['orderid'], int) and \
            'name' in new_orders and isinstance(new_orders['name'], str) and \
