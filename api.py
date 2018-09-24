@@ -13,7 +13,7 @@ def order():
         response = orders
     else:  # POST
         if request.content_type != 'application/json':
-            return jsonify({})
+            return jsonify({}),200
         try:
             new_orders = json.loads(request.data)
         except ValueError:
