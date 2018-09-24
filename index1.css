@@ -77,7 +77,7 @@ li a:hover, .menu:hover {
 	padding: 0px;
 	height: 500px;
 	overflow: hidden;
-	background-color: #0a030bcc;
+	background-color: #0a030b99;
 }
 
 /* Clear floats after the columns */
@@ -108,7 +108,7 @@ li a:hover, .menu:hover {
     border-bottom-width: 1px;
     border-left-style: solid;
     border-left-width: 1px;
-	width: 42%;
+	width: 73%;
 	text-align: justify;
 	text-indent: 34px;
 	color: lavender;
@@ -210,15 +210,15 @@ body {
 .footer_before{
 	float: left;
 	width: 100%;
-	height: 9px;
-	background-color: #012163;
+	height: 4px;
+	background-color: #f00;
 }
 
 .footer{
 	float:left;
 	width:100%;
 	/*height:auto; */
-	height:300px;
+	height:200px;
 	background-color: #000;
 }
 /*
@@ -230,7 +230,7 @@ width:33% , 33% , 33%;
 
 .a{
 float:left;
-width:34%;
+width:50%;
 /*background-color: #4CAF50;8/
 margin-top: 12px;
 }
@@ -244,7 +244,7 @@ margin-top: 12px;
 
 .c{
 	float:left;
-	width:33%;
+	width:50%;
 /*	background-color: #06217e;*/
 	margin-top: 12px;
 }
@@ -253,10 +253,23 @@ margin-top: 12px;
 	color: white;
 font-size: 14px;
 float: left;
-width: 33%;
+width: 43%;
 text-align: center;
 }
 
+
+.end{
+	float: left;
+width: 100%;
+/*border-bottom-style: dotted;*/
+border-bottom-color: red;
+background-color: black;
+border-top-style: groove;
+}
+.end p{
+	text-align: center;
+	color:lavender;
+}
 
 
 
@@ -267,84 +280,168 @@ text-align: center;
 
 
                         /* my login form   style  */
-
-
-form {
-    border: 3px solid #f1f1f1;
+#password{
+margin-left: 12px;
 }
+	   
 
-/* Full-width inputs */
-input[type=text], input[type=password] {
-	width: 27%;
-	padding: 6px 17px;
-	margin: 7px 0;
-	margin-left: 0px;
-	margin-left: 0px;
-	margin-left: 0px;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	margin-left: 479px;
+			  /*   signup page       */
+			  
+
+		
+.sign{
+	float: left;
+text-align: center;
+width: 100%;
+overflow: hidden;
+background-color: white;
+
 }
-
-/* Set a style for all buttons */
-button {
-	background-color: #4CAF50;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	margin-left: 0px;
-	border: none;
-	cursor: pointer;
-	width: 7%;
-	margin-left: 478px;
+input[type="text"], input[type="password"] {
+    width: 22%;
+    padding: 4px 16px;
+    margin: 2px 0px;
+        margin-left: 0px;
+    margin-left: 0px;
+    margin-left: 0px;
+    margin-left: 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	margin-left: 42px;
 }
+.sign p{
 
-/* Add a hover effect for buttons */
-button:hover {
-    opacity: 0.8;
+
 }
+.uname{
 
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
+
 }
+.youmail{
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
 
-/* login image */
-img.login {
-    width: 10%;
-    border-radius: 50%;
-}
-
-/* Add padding to containers */
-.container {
-    padding: 16px;
-}
-
-/* The "Forgot password" text */
-span.psw {
-	/* float: right; */
-	padding-top: 14px;
-	margin-left: 108px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
 }
 
 
+#usernamesignup{
+	margin-left: 138px;
+table-layout: unset;
+}
+
+	/*  order    */
+#password{
+
+}
+
+#usernamesignup2{
+	margin-left: 122px;
+
+}
+
+#usernamesignup3{
+	margin-left: 104px;
+
+}
+#usernamesignup4{
+	margin-left: 120px;
+}
+#emailsignup1{
+	margin-left: 143px;
+}
+
+#passwordsignup_a{
+	margin-left: 109px;
+}
+
+#passwordsignup_confirm_b{
+	margin-left: 148px;
+
+}
+.signin_button_a{
+
+}
+
+		 /*place an order now    "plass an order page */
+.made{
+	float: left;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	height: 400px;
+	background: linear-gradient(52grad, #f00,#001042);
+
+}
+
+.side_a h1{
+	float: left;
+	color:lavender;
+	/*overflow: hidden; */
+	font-size: 36px;
+	margin-left: 135px;
+}
+
+.side_a p{
+	color:lavender;
+	margin-top: 74px;
+	/*overflow: hidden; */
+	text-align: center;
+}
+
+.side_b{
+	float:left;
+	width:50%;	
+}
+
+
+.side_b, img{
+	width: 469px;
+height: 278px;
+border-radius: 26px;
+image-orientation: unset;
+margin-top: 15px;
+}
+
+
+
+.most{
+	float:left;
+	width:100%;
+	overflow:hidden;
+	background-image: url(slides/slide5.jpg);
+}	
+
+
+.order_button1{
+
+
+}
+
+.custome-select{
+
+
+}
+.custome-select select{
+
+
+}
+
+
+.choose1{ 
+
+	float: left;
+}
+.choose2{
+	float: left;
+}
+
+				  /*   style the admin page  */
+
+
+#order{
+float:left;
+width:100%;
+height:300px;
+}				  
+
+			  
